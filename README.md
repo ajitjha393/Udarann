@@ -1,4 +1,4 @@
-# Wonderful Udharann
+# Wonderful Udarann
 
 ## Project setup
 
