@@ -15,7 +15,7 @@ export default {}
 <style scoped>
 .panel-body {
 	font-family: 'Arizonia', cursive;
-	font-size: 1.5rem;
+	font-size: 24px;
 	color: #6e6e6e;
 }
 
