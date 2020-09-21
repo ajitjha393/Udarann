@@ -1,8 +1,10 @@
 <template>
 	<div class="row">
-		<udarann-quote v-for="q in quotes" :key="Math.random() + q">
-			{{ q }}
-		</udarann-quote>
+		<udarann-quote
+			v-for="(q,index) in quotes"
+			:key="Math.random() + q"
+			@click.native="deleteQuote(index)"
+		>{{ q }}</udarann-quote>
 	</div>
 </template>
 
@@ -11,9 +13,14 @@ import Quote from './Quote.vue'
 
 export default {
 	props: ['quotes'],
+	methods: {
+		deleteQuote(index) {
+			this.$emit('quoteDeleted', index)
+		},
+	},
 	components: {
-		'udarann-quote': Quote
-	}
+		'udarann-quote': Quote,
+	},
 }
 </script>
 
