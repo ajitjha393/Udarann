@@ -1,6 +1,9 @@
 <template>
 	<div class="container">
-		<udarann-header></udarann-header>
+		<udarann-header
+			:quoteCount="quotes.length"
+			:maxQuotes="maxQuotes"
+		></udarann-header>
 		<udarann-new-quote @quoteAdded="newQuote"></udarann-new-quote>
 		<udarann-quote-grid
 			:quotes="quotes"
@@ -32,6 +35,9 @@ export default {
 	},
 	methods: {
 		newQuote(quote) {
+			if (this.quotes.length === this.maxQuotes) {
+				return alert('Please Delete some Quotes first !')
+			}
 			this.quotes.push(quote)
 		},
 
