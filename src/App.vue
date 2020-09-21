@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<udarann-new-quote @quoteAdded="newQuote"></udarann-new-quote>
-		<udarann-quote-grid :quotes="quotes"></udarann-quote-grid>
+		<udarann-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></udarann-quote-grid>
 		<div class="row">
 			<div class="col-sm-12 text-center">
 				<div class="alert alert-info">Info: Click on a Quote for deleting it !</div>
@@ -27,7 +27,12 @@ export default {
 		newQuote(quote) {
 			this.quotes.push(quote)
 		},
+
+		deleteQuote(index) {
+			this.quotes.splice(index, 1)
+		},
 	},
+
 	components: {
 		'udarann-quote-grid': QuoteGrid,
 		'udarann-new-quote': NewQuote,
